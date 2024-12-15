@@ -1,6 +1,7 @@
 import 'package:dynamic_height_grid_view/dynamic_height_grid_view.dart';
 import 'package:flutter/material.dart';
 import 'package:online_shopping_app/providers/viewed_recently_provider.dart';
+import 'package:online_shopping_app/widgets/app_name_text.dart';
 import 'package:online_shopping_app/widgets/empty_widget_bag.dart';
 import 'package:online_shopping_app/widgets/products/products_widget.dart';
 import 'package:online_shopping_app/widgets/titles_text.dart';
@@ -16,6 +17,23 @@ class RecentlyViewedScreen extends StatelessWidget {
     final viewedProdProvider = Provider.of<ViewedProdProvider>(context);
     return viewedProdProvider.getViewedProds.isEmpty
         ? Scaffold(
+          appBar: AppBar(
+        title: const AppNameTextWidget(
+          fontSize: 20,
+        ),
+        leading: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: IconButton(
+              onPressed: () {
+                Navigator.canPop(context) ? Navigator.pop(context) : null;
+              },
+              icon: Icon(
+                Icons.arrow_back_ios,
+                size: 18,
+              ),
+            ) 
+            ),
+      ),
             body: EmptyBagWidget(
               imagePath:
                   "https://res.cloudinary.com/dueksc1xj/image/upload/v1733927353/bag_wish_annlw5.png",
