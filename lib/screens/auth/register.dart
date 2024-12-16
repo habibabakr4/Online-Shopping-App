@@ -70,13 +70,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
   Future<void> _registerFCT() async {
     final isValid = _formkey.currentState!.validate();
     FocusScope.of(context).unfocus();
-    if (_pickedImage == null) {
-      MyAppFunctions.showErrorOrWarningDialog(
-          context: context,
-          subtitle: "Make sure to pick up an image",
-          fct: () {});
-      return;
-    }
+    // if (_pickedImage == null) {
+    //   MyAppFunctions.showErrorOrWarningDialog(
+    //       context: context,
+    //       subtitle: "Make sure to pick up an image",
+    //       fct: () {});
+    //   return;
+    // }
     if (isValid) {
       // try {
       //   setState(() {
