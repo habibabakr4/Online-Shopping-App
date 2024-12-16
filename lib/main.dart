@@ -12,6 +12,7 @@ import 'package:online_shopping_app/screens/auth/register.dart';
 import 'package:online_shopping_app/screens/inner_screens/products_details.dart';
 import 'package:online_shopping_app/screens/inner_screens/viewed_recently.dart';
 import 'package:online_shopping_app/screens/inner_screens/wishlist_screen.dart';
+import 'package:online_shopping_app/screens/product_feedback_screen.dart';
 import 'package:online_shopping_app/screens/search_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -42,29 +43,27 @@ class MainApp extends StatelessWidget {
           create: (context) => ViewedProdProvider(),
         ),
       ],
-      child: Consumer<ThemeProvider>(
-        builder: (
-          context, 
-          themeProvider,
-          child
-        ){
-          return MaterialApp(
-            title: 'Online Shop',
-            theme: Styles.themeData(
-                isDarkTheme: themeProvider.getIsDarkTheme, context: context),
-            home: const RootScreen(),
-            routes: {
-              ProductDetails.routName: (context) => const ProductDetails(),
-              WishlistScreen.routeName: (context) => const WishlistScreen(),
-              RecentlyViewedScreen.routeName: (context) => const RecentlyViewedScreen(),
-              RegisterScreen.routName: (context) => const RegisterScreen(),
-              LoginScreen.routeName: (context) => const LoginScreen(),
-              ForgotPasswordScreen.routeName: (context) => const ForgotPasswordScreen(),
-              SearchScreen.routeName: (context) => const SearchScreen(),
-            },
-          );
-        }
-      ),
+      child: Consumer<ThemeProvider>(builder: (context, themeProvider, child) {
+        return MaterialApp(
+          title: 'Online Shop',
+          theme: Styles.themeData(
+              isDarkTheme: themeProvider.getIsDarkTheme, context: context),
+          home: const RootScreen(),
+          routes: {
+            ProductDetails.routName: (context) => const ProductDetails(),
+            WishlistScreen.routeName: (context) => const WishlistScreen(),
+            RecentlyViewedScreen.routeName: (context) =>
+                const RecentlyViewedScreen(),
+            RegisterScreen.routName: (context) => const RegisterScreen(),
+            LoginScreen.routeName: (context) => const LoginScreen(),
+            ForgotPasswordScreen.routeName: (context) =>
+                const ForgotPasswordScreen(),
+            SearchScreen.routeName: (context) => const SearchScreen(),
+            ProductFeedbackScreen.routeName: (context) =>
+                const ProductFeedbackScreen(),
+          },
+        );
+      }),
     );
   }
 }

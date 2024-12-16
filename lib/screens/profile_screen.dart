@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:online_shopping_app/providers/theme_provider.dart';
 import 'package:online_shopping_app/screens/inner_screens/viewed_recently.dart';
 import 'package:online_shopping_app/screens/inner_screens/wishlist_screen.dart';
+import 'package:online_shopping_app/screens/product_feedback_screen.dart';
 import 'package:online_shopping_app/widgets/app_name_text.dart';
 import 'package:online_shopping_app/widgets/custom_list_title.dart';
 import 'package:online_shopping_app/widgets/subtitle_text.dart';
@@ -95,13 +96,22 @@ class ProfileScreen extends StatelessWidget {
                   icon: Icons.history,
                   text: 'Viewed recently',
                   function: () {
-                    Navigator.pushNamed(context, RecentlyViewedScreen.routeName);
+                    Navigator.pushNamed(
+                        context, RecentlyViewedScreen.routeName);
                   },
                 ),
                 CustomListTitle(
                   icon: Icons.location_on,
                   text: 'Address',
                   function: () {},
+                ),
+                CustomListTitle(
+                  icon: Icons.feedback,
+                  text: 'Feedback',
+                  function: () {
+                    Navigator.pushNamed(
+                        context, ProductFeedbackScreen.routeName);
+                  },
                 ),
                 Divider(
                   thickness: 1,
